@@ -6,20 +6,25 @@ class Car {
 	public $price;
 	public $discount;
 	public $ecoClass;
-	public function __construct($brand, $model, $price) {
+	public function __construct($brand, $model, $price) 
+	{
 		echo 'Выпущена новая машина: ' . $brand . ' ' . $model .  ' За ' . $price . '.    ';
 	}
-	public function changePrice ($newprice) {
+	public function changePrice($newprice) 
+	{
 		$this->price = $newprice;
 	}
-	public function setDiscount ($newdiscount) {
+	public function setDiscount($newdiscount) 
+	{
 		$this->discount = $newdiscount;
 	}
-	public function getPrice () {
+	public function getPrice() 
+	{
 		return $this->price;
 	}
-	public function getPriceWithDiscount () {
-		return $this->price - ($this->price/100*$this->discount);
+	public function getPriceWithDiscount() 
+	{
+		return $this->price-($this->price/100*$this->discount);
 	}
 }
 
@@ -29,21 +34,25 @@ class Tele {
 	public $color;
 	public $price;
 	public $discount;
-	public function __construct($brand, $model, $price, $discount) {
+	public function __construct($brand, $model, $price, $discount) 
+	{
 		$this->brand = $brand;
 		$this->model = $model;
 		$this->price = $price;
 		$this->discount = $discount;
 		echo 'В продаже появился новый телефон: ' . $brand . ' ' . $model .  '.  ';
 	}
-	public function changePrice ($newprice) {
+	public function changePrice($newprice) 
+	{
 		$this->price = $newprice;
 	}
-	public function getPrice () {
+	public function getPrice() 
+	{
 		return $this->price;
 	}
-	public function getPriceWithDiscount () {
-		return $this->price - ($this->price/100*$this->discount);
+	public function getPriceWithDiscount() 
+	{
+		return $this->price-($this->price/100*$this->discount);
 	}
 }
 
@@ -53,22 +62,23 @@ class Pen{
 	public $color;
 	public $price;
 	public $discount;
-	public $diagonal;
-	public function __construct($brand, $model, $price, $diagonal) {
+	public function __construct($brand, $model, $price) 
+	{
 		$this->brand = $brand;
 		$this->model = $model;
 		$this->price = $price;
-		$this->diagonal = $diagonal;
-		echo 'Телефизор года: ' . $brand . ' ' . $model .  ' За ' . $price . '.    ';
 	}
-	public function changePrice ($newprice) {
+	public function changePrice($newprice) 
+	{
 		$this->price = $newprice;
 	}
-	public function getPrice () {
+	public function getPrice() 
+	{
 		return $this->price;
 	}
-	public function getPriceWithDiscount () {
-		return $this->price - ($this->price/100*$this->discount);
+	public function getPriceWithDiscount() 
+	{
+		return $this->price-($this->price/100*$this->discount);
 	}
 
 }
@@ -96,31 +106,38 @@ class Product {
 	public $size;
 	private $price;
 	private $discount = 0;
-	public function __construct($brand, $model, $category, $size, $price) {
+	public function __construct($brand, $model, $category, $size, $price) 
+	{
 		$this->brand = $brand;
 		$this->model = $model;
 		$this->category = $category;
 		$this->size = $size;
 		$this->price = $price;
 	}
-	public function changePrice ($newprice) {
+	public function changePrice($newprice) 
+	{
 		$this->price = $newprice;
 	}
-	public function setDiscount ($newdiscount) {
+	public function setDiscount($newdiscount) 
+	{
 		$this->discount = $newdiscount;
 	}
-	public function getPrice () {
+	public function getPrice() 
+	{
 		return $this->price;
 	}
-	public function getPriceWithDiscount () {
-		return $this->price - ($this->price/100*$this->discount);
+	public function getPriceWithDiscount() 
+	{
+		return $this->price-($this->price/100*$this->discount);
 	}
 }
 
 $shoes = new Product ('Nike', 'xxx', 'shoes', '39', 50);
 $t_short = new Product ('Cropp', 'Cropp', 'T-short', 'S', 10);
-$Duck1 = new Duck('Mergellus albellus','Eurasia', '38—44 см');
-$Duck2 = new Duck('Dendrocygna bicolor','Africa', '45—53 см');
+$Duck1 = new Duck('Mergellus albellus', 'Eurasia', '38—44 см');
+$Duck2 = new Duck('Dendrocygna bicolor', 'Africa', '45—53 см');
+$Pen1 = new Pen('bic', 'fusion', 25);
+$Pen2 = new Pen('ErichCrause', 'one', 50)
 
 ?>
 <!DOCTYPE html>
@@ -138,14 +155,23 @@ $Duck2 = new Duck('Dendrocygna bicolor','Africa', '45—53 см');
 			<?php
 			$car1 = new Car('bmw',' X3', 1900000);
 			echo '<br>';
-			$tele1 = new Tele('lg','g22', 50000, 10);
-			echo 'Цена с учетом скидки: ' . $tele1->getPriceWithDiscount ();
+			$Car2 = new Car('Mercedes', 'SLK 500', 7200000, 10);
+			echo '<br>';
+			$tele1 = new Tele('lg', 'g22', 50000, 10);
+			echo 'Цена с учетом скидки: ' . $tele1->getPriceWithDiscount();
+			echo '<br>';
+			$tele2 = new Tele('samsung', 'ss100', 50000, 25);
+			echo 'Цена с учетом скидки: ' . $tele2->getPriceWithDiscount();
 			echo '<br>';
 			print_r($Duck1);
 			print_r($Duck2);
 			echo '<br>';
 			print_r($shoes);
 			print_r($t_short);
+			echo '<br>';
+			print_r($Pen1);
+			print_r($Pen2);
+			echo '<br>';
 			?>	
 	</div>
 </body>
